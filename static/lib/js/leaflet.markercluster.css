@@ -1,0 +1,155 @@
+.marker-cluster-0  {
+     background-color: rgba(230, 25, 75, 0.5);
+    }
+.marker-cluster-0  div {
+     background-color: rgba(230, 25, 75, 0.5);
+    }
+.marker-cluster-1  {
+     background-color: rgba(60, 180, 75, 0.5);
+    }
+.marker-cluster-1  div {
+     background-color: rgba(60, 180, 75, 0.5);
+    }
+.marker-cluster-2  {
+     background-color: rgba(255, 225, 25, 0.5);
+    }
+.marker-cluster-2  div {
+     background-color: rgba(255, 225, 25, 0.5);
+    }
+.marker-cluster-3  {
+     background-color: rgba(0, 130, 200, 0.5);
+    }
+.marker-cluster-3  div {
+     background-color: rgba(0, 130, 200, 0.5);
+    }
+.marker-cluster-4  {
+     background-color: rgba(245, 130, 48, 0.5);
+    }
+.marker-cluster-4  div {
+     background-color: rgba(245, 130, 48, 0.5);
+    }
+.marker-cluster-5  {
+     background-color: rgba(145, 30, 180, 0.5);
+    }
+.marker-cluster-5  div {
+     background-color: rgba(145, 30, 180, 0.5);
+    }
+.marker-cluster-6  {
+     background-color: rgba(70, 240, 240, 0.5);
+    }
+.marker-cluster-6  div {
+     background-color: rgba(70, 240, 240, 0.5);
+    }
+.marker-cluster-7  {
+     background-color: rgba(240, 50, 230, 0.5);
+    }
+.marker-cluster-7  div {
+     background-color: rgba(240, 50, 230, 0.5);
+    }
+.marker-cluster-8  {
+     background-color: rgba(210, 245, 60, 0.5);
+    }
+.marker-cluster-8  div {
+     background-color: rgba(210, 245, 60, 0.5);
+    }
+.marker-cluster-9  {
+     background-color: rgba(250, 190, 190, 0.5);
+    }
+.marker-cluster-9  div {
+     background-color: rgba(250, 190, 190, 0.5);
+    }
+.marker-cluster-10  {
+     background-color: rgba(0, 128, 128, 0.5);
+    }
+.marker-cluster-10  div {
+     background-color: rgba(0, 128, 128, 0.5);
+    }
+.marker-cluster-11  {
+     background-color: rgba(230, 190, 255, 0.5);
+    }
+.marker-cluster-11  div {
+     background-color: rgba(230, 190, 255, 0.5);
+    }
+.marker-cluster-12  {
+     background-color: rgba(170, 110, 40, 0.5);
+    }
+.marker-cluster-12  div {
+     background-color: rgba(170, 110, 40, 0.5);
+    }
+.marker-cluster-13  {
+     background-color: rgba(128, 0, 0, 0.5);
+    }
+.marker-cluster-13  div {
+     background-color: rgba(128, 0, 0, 0.5);
+    }
+.marker-cluster-14  {
+     background-color: rgba(170, 255, 195, 0.5);
+    }
+.marker-cluster-14  div {
+     background-color: rgba(170, 255, 195, 0.5);
+    }
+.marker-cluster-15  {
+     background-color: rgba(128, 128, 0, 0.5);
+    }
+.marker-cluster-15  div {
+     background-color: rgba(128, 128, 0, 0.5);
+    }
+.marker-cluster-16  {
+     background-color: rgba(255, 215, 180, 0.5);
+    }
+.marker-cluster-16  div {
+     background-color: rgba(255, 215, 180, 0.5);
+    }
+.marker-cluster-17  {
+     background-color: rgba(0, 0, 128, 0.5);
+    }
+.marker-cluster-17  div {
+     background-color: rgba(0, 0, 128, 0.5);
+    }
+
+	/* IE 6-8 fallback colors */
+.leaflet-oldie .marker-cluster-small {
+	background-color: rgb(181, 226, 140);
+	}
+.leaflet-oldie .marker-cluster-small div {
+	background-color: rgb(110, 204, 57);
+	}
+
+.leaflet-oldie .marker-cluster-medium {
+	background-color: rgb(241, 211, 87);
+	}
+.leaflet-oldie .marker-cluster-medium div {
+	background-color: rgb(240, 194, 12);
+	}
+
+.leaflet-oldie .marker-cluster-large {
+	background-color: rgb(253, 156, 115);
+	}
+.leaflet-oldie .marker-cluster-large div {
+	background-color: rgb(241, 128, 23);
+}
+
+.marker-cluster {
+	background-clip: padding-box;
+	border-radius: 20px;
+	}
+.marker-cluster div {
+	width: 30px;
+	height: 30px;
+	margin-left: 5px;
+	margin-top: 5px;
+
+	text-align: center;
+	border-radius: 15px;
+	font: 13px "Helvetica Neue", Arial, Helvetica, sans-serif;
+	}
+.marker-cluster span {
+	line-height: 30px;
+	}
+
+.leaflet-cluster-anim .leaflet-marker-icon, .leaflet-cluster-anim .leaflet-marker-shadow {
+	-webkit-transition: -webkit-transform 0.3s ease-out, opacity 0.3s ease-in;
+	-moz-transition: -moz-transform 0.3s ease-out, opacity 0.3s ease-in;
+	-o-transition: -o-transform 0.3s ease-out, opacity 0.3s ease-in;
+	transition: transform 0.3s ease-out, opacity 0.3s ease-in;
+	}
