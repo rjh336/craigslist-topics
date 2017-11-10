@@ -105,8 +105,11 @@
   </div>
 
   <hr>
-  <!-- <p class="small text-muted">Built with &#9829; by <a href="https://keen.io">Keen IO</a></p> -->
-
+  
+    <p>
+      <img src="static/legend.png">
+    </p> 
+  
   <script src="static/lib/js/jquery.min.js"></script>
   <script src="static/lib/js/bootstrap.min.js"></script>
   <script src="static/lib/js/underscore-min.js"></script>
@@ -136,7 +139,7 @@
       //Define Dimensions
       var topic = ndx.dimension(function(d) { return d.topic; });
       var city = ndx.dimension(function(d) { return d.city; });
-      var coords = ndx.dimension(function(d) { return [d.gmap_lat, d.gmap_lon, d.id, d.topic]; });
+      var coords = ndx.dimension(function(d) { return [d.gmap_lat, d.gmap_lon, d.id, d.topic, d.title, d.url]; });
       var allDim = ndx.dimension(function(d) {return d;});
 
       //Group Data
@@ -204,42 +207,30 @@
         .elasticX(true)
         .on("postRender", function(chart) {
           addXLabel(chart, "Number of Posts");
+          // var total = 0;
+          // var barsData = [];
+          // var bars = chart.selectAll('rect').each(function (d) {
+          //     barsData.push(d); 
+          //     total = total + d;
+          // });
+          // console.log(bars);
+          // //Remove old values (if found)
+          // d3.select(bars).select('#inline-labels').remove();
+          // //Create group for labels 
+          // var gLabels = d3.select(bars.parentNode).append('g').attr('id', 'inline-labels');
+          // console.log(gLabels);
+          // for (var i = bars[0].length - 1; i >= 0; i--) {
+          //     var b = bars[0][i];
+          //     //Only create label if bar height is tall enough
+          //     if (+b.getAttribute('height') < 18) continue;
+          //     gLabels.append("text")
+          //         .text(Math.round((barsData[i].value / total)*100) + "%")
+          //         .attr('x', +b.getAttribute('x') + (b.getAttribute('width') / 2))
+          //         .attr('y', +b.getAttribute('y') + 15)
+          //         .attr('text-anchor', 'middle')
+          //         .attr('fill', 'white');
+          // };
         });
-        // .labelOffsetY(20)
-        // .labelOffsetX(-16)
-        // .xAxis().tickFormat(function (v) {return v;})
-        // .yAxis().tickFormat(function (v) {return v;});
-        // .margins({top: 2, right: 2, bottom: 3, left: 5})
-        // .x(d3.scale.ordinal())
-        // .xUnits(dc.units.ordinal)
-        // .brushOn(false)
-        // .elasticY(true)
-        // .xAxisLabel('topic')
-        // .yAxisLabel('posts')
-        
-        // .renderlet(function (chart) {
-        //   var total = 0
-        //   var barsData = [];
-        //   var bars = chart.selectAll('.bar').each(function (d) {
-        //       barsData.push(d); 
-        //       total = total + d.y
-        //   });
-        //   //Remove old values (if found)
-        //   d3.select(bars[0][0].parentNode).select('#inline-labels').remove();
-        //   //Create group for labels 
-        //   var gLabels = d3.select(bars[0][0].parentNode).append('g').attr('id', 'inline-labels');
-        //   for (var i = bars[0].length - 1; i >= 0; i--) {
-        //       var b = bars[0][i];
-        //       //Only create label if bar height is tall enough
-        //       if (+b.getAttribute('height') < 18) continue;
-        //       gLabels.append("text")
-        //           .text(Math.round((barsData[i].data.value / total)*100) + "%")
-        //           .attr('x', +b.getAttribute('x') + (b.getAttribute('width') / 2))
-        //           .attr('y', +b.getAttribute('y') + 15)
-        //           .attr('text-anchor', 'middle')
-        //           .attr('fill', 'white');
-        //   }
-        // });
 
         cityChart
         .width(280)
@@ -248,7 +239,7 @@
         .dimension(city)
         .group(cityGroup)
         .ordering(function(d) { return -d.value })
-        .colors(['#62ace0'])
+        .colors(['#e2b2ff'])
         .elasticX(true)
         .labelOffsetY(10)
         .labelOffsetX(2)
@@ -265,14 +256,16 @@
         .zoom(4)
         .cluster(true)
         .filterByArea(true)
-        // .popup(function(d,marker) {
-        //   id = d.key[2] -1;
-        //   popup = L.popup({autoPan: false, closeButton: false, maxWidth: 500});
-        //   popup.setContent("Id: " + "<b>" + records[id].id + "</b></br>" 
-        //     + "Position: " + "<b>" + records[id].gmap_lon.toFixed(2) + "°E</b>, <b>" + records[id].gmap_lat.toFixed(2) + "°N</b></br>" + "Topic: " + "<b>" + records[id].gmap_lon.toFixed(2) + "</b>");
-        //   return popup;
-        //   })
-
+        .popup( function(d,marker) {
+          // console.log(d.key[4]);
+          popup = L.popup({autoPan: false, closeButton: false, maxWidth: 500});
+          popup.setContent(
+            "<b>Topic:  </b>" + d.key[3] + "</br>" +
+            "<b>Post Title: </b>" + d.key[4] + "</br>" +
+            "<b>URL: </b>" + "<a href='" + d.key[5] + "' >link to post</a>"
+          );
+          return popup;
+          })
         .clusterOptions({
           iconCreateFunction: function(t) {
                 var e = t.getChildCount(),

@@ -1,8 +1,10 @@
 .marker-cluster-0  {
      background-color: rgba(230, 25, 75, 0.5);
+     color: white;
     }
 .marker-cluster-0  div {
      background-color: rgba(230, 25, 75, 0.5);
+     color: white;
     }
 .marker-cluster-1  {
      background-color: rgba(60, 180, 75, 0.5);
@@ -18,9 +20,11 @@
     }
 .marker-cluster-3  {
      background-color: rgba(0, 130, 200, 0.5);
+     color: white;
     }
 .marker-cluster-3  div {
      background-color: rgba(0, 130, 200, 0.5);
+     color: white;
     }
 .marker-cluster-4  {
      background-color: rgba(245, 130, 48, 0.5);
@@ -29,10 +33,12 @@
      background-color: rgba(245, 130, 48, 0.5);
     }
 .marker-cluster-5  {
-     background-color: rgba(145, 30, 180, 0.5);
+     background-color: rgba(145, 30, 180, 0.4);
+     color: white;
     }
 .marker-cluster-5  div {
-     background-color: rgba(145, 30, 180, 0.5);
+     background-color: rgba(145, 30, 180, 0.4);
+     color: white;
     }
 .marker-cluster-6  {
      background-color: rgba(70, 240, 240, 0.5);
@@ -60,9 +66,11 @@
     }
 .marker-cluster-10  {
      background-color: rgba(0, 128, 128, 0.5);
+     color: white;
     }
 .marker-cluster-10  div {
      background-color: rgba(0, 128, 128, 0.5);
+     color: white;
     }
 .marker-cluster-11  {
      background-color: rgba(230, 190, 255, 0.5);
@@ -77,10 +85,12 @@
      background-color: rgba(170, 110, 40, 0.5);
     }
 .marker-cluster-13  {
-     background-color: rgba(128, 0, 0, 0.5);
+     background-color: rgba(128, 0, 0, 0.4);
+     color: white;
     }
 .marker-cluster-13  div {
-     background-color: rgba(128, 0, 0, 0.5);
+     background-color: rgba(128, 0, 0, 0.4);
+     color: white;
     }
 .marker-cluster-14  {
      background-color: rgba(170, 255, 195, 0.5);
@@ -90,9 +100,11 @@
     }
 .marker-cluster-15  {
      background-color: rgba(128, 128, 0, 0.5);
+     color: white;
     }
 .marker-cluster-15  div {
      background-color: rgba(128, 128, 0, 0.5);
+     color: white;
     }
 .marker-cluster-16  {
      background-color: rgba(255, 215, 180, 0.5);
@@ -101,10 +113,12 @@
      background-color: rgba(255, 215, 180, 0.5);
     }
 .marker-cluster-17  {
-     background-color: rgba(0, 0, 128, 0.5);
+     background-color: rgba(0, 0, 128, 0.4);
+     color: white;
     }
 .marker-cluster-17  div {
-     background-color: rgba(0, 0, 128, 0.5);
+     background-color: rgba(0, 0, 128, 0.4);
+     color: white;
     }
 
 	/* IE 6-8 fallback colors */
