@@ -1,274 +1,284 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Craigslist Musicians</title>
-  <link rel="stylesheet" href="static/lib/css//bootstrap.min.css">
-  <link rel="stylesheet" href="static/lib/css/keen-dashboards.css">
-  <link rel="stylesheet" href="static/css/custom.css">
-  <link rel="stylesheet" href="static/lib/css/dc.css">
-  <link rel="stylesheet" href="static/lib/css/leaflet.css"/>
-  <link rel="stylesheet" href="static/lib/css/leaflet.markercluster.css"/>  
+    <title>Craigslist Musicians</title>
+    <link rel="stylesheet" href="static/lib/css//bootstrap.min.css">
+    <link rel="stylesheet" href="static/lib/css/keen-dashboards.css">
+    <link rel="stylesheet" href="static/css/custom.css">
+    <link rel="stylesheet" href="static/lib/css/dc.css">
+    <link rel="stylesheet" href="static/lib/css/leaflet.css" />
+    <link rel="stylesheet" href="static/lib/css/leaflet.markercluster.css" />
 </head>
 
 <body class="application">
 
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="./">Craigslist Musicians and their sub-groupings</a>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="./">Craigslist Musicians and their sub-groupings</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="container-fluid">
-
-    <div class="row">
-
-      <div class="col-sm-3">
-        <div class="row">
-
-          <!-- Topic Chart --> 
-          <div class="col-sm-12">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                Topic Breakdown
-              </div>
-              <div class="chart-stage">
-                <div id="topic-chart"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Topic Chart --> 
-
-        </div>
-      </div>
-
-      <div class="col-sm-2">
-        <div class="row">
-
-          <!-- City -->  
-          <div class="col-sm-12">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                City
-              </div>
-              <div class="chart-stage">
-                <div id="city-chart"></div>
-              </div>
-            </div>
-          </div>
-          <!-- City -->  
-        </div>
-      </div>
-
-      <div class="col-sm-7">
 
         <div class="row">
-          <!-- Map -->  
-          <div class="col-sm-20"> 
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                Map
-              </div>
-              <div class="chart-stage">
-                <div id="map" style="width: 1200px; height: 690px"></div>
-              </div>
-            </div>
-          </div>
-          <!-- Map -->  
-        </div>
 
-      </div>
+            <div class="col-sm-3">
+                <div class="row">
+
+                    <!-- Topic Chart -->
+                    <div class="col-sm-12">
+                        <div class="chart-wrapper">
+                            <div class="chart-title">
+                                Topic Breakdown
+                            </div>
+                            <div class="chart-stage">
+                                <div id="topic-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Topic Chart -->
+
+                </div>
+            </div>
+
+            <div class="col-sm-2">
+                <div class="row">
+
+                    <!-- City -->
+                    <div class="col-sm-12">
+                        <div class="chart-wrapper">
+                            <div class="chart-title">
+                                City
+                            </div>
+                            <div class="chart-stage">
+                                <div id="city-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- City -->
+                </div>
+            </div>
+
+            <div class="col-sm-7">
+
+                <div class="row">
+                    <!-- Map -->
+                    <div class="col-sm-20">
+                        <div class="chart-wrapper">
+                            <div class="chart-title">
+                                Map
+                            </div>
+                            <div class="chart-stage">
+                                <div id="map" style="width: 1200px; height: 690px"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Map -->
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-  </div>
-
-  <hr>
-  <!-- Legend -->
+    <hr>
+    <!-- Legend -->
     <p>
-      <img src="static/legend.png">
-    </p> 
-  
-  <script src="static/lib/js/jquery.min.js"></script>
-  <script src="static/lib/js/bootstrap.min.js"></script>
-  <script src="static/lib/js/underscore-min.js"></script>
-  <script src="static/lib/js/crossfilter.js"></script>
-  <script src="https://d3js.org/d3.v3.js"></script>
-  <script src="static/lib/js/dc.js"></script>
-  <script src="static/lib/js/queue.js"></script>
-  <script src="static/lib/js/leaflet.js"></script>
-  <script src="static/lib/js/leaflet.markercluster.js"></script>
-  <script src="static/lib/js/dc.leaflet.js"></script>
-  
-  
-  <script type='text/javascript'>
-    queue()
-    .defer(d3.json, "/data")
-    .await(makeGraphs);
+        <img src="static/legend.png">
+    </p>
 
-    function makeGraphs(error, recordsJson) {
-      
-      //Clean data
-      var records = recordsJson;
-      
-      //Create a Crossfilter instance
-      var ndx = crossfilter(records);
-      var groupname = "marker-select";
+    <script src="static/lib/js/jquery.min.js"></script>
+    <script src="static/lib/js/bootstrap.min.js"></script>
+    <script src="static/lib/js/underscore-min.js"></script>
+    <script src="static/lib/js/crossfilter.js"></script>
+    <script src="https://d3js.org/d3.v3.js"></script>
+    <script src="static/lib/js/dc.js"></script>
+    <script src="static/lib/js/queue.js"></script>
+    <script src="static/lib/js/leaflet.js"></script>
+    <script src="static/lib/js/leaflet.markercluster.js"></script>
+    <script src="static/lib/js/dc.leaflet.js"></script>
 
-      //Define Dimensions
-      var topic = ndx.dimension(function(d) { return d.topic; });
-      var city = ndx.dimension(function(d) { return d.city; });
-      var coords = ndx.dimension(function(d) { return [d.gmap_lat, d.gmap_lon, d.id, d.topic, d.title, d.url]; });
-      var allDim = ndx.dimension(function(d) {return d;});
 
-      //Group Data
-      var coordsGroup = coords.group().reduceCount();
-      var topicGroup = topic.group().reduceCount();
-      var cityGroup = city.group().reduceCount();
-      
-      //Charts
-      var topicChart = dc.rowChart("#topic-chart", groupname);
-      var cityChart = dc.rowChart("#city-chart", groupname);
-      var map = dc.leafletMarkerChart("#map", groupname);
+    <script type='text/javascript'>
+        // queue data from /data path and call makeGraphs when app.py serves json
+        queue().defer(d3.json, "/data").await(makeGraphs);
 
-      // Functions to add x-label to Row Charts (Unsupported by dc.js)
-      var addXLabel = function(chartToUpdate, displayText) {
-        var textSelection = chartToUpdate.svg()
-                  .append("text")
+        function makeGraphs(error, recordsJson) {
+
+            //Clean data
+            var records = recordsJson;
+
+            //Create a Crossfilter instance
+            var ndx = crossfilter(records);
+            var groupname = "marker-select";
+
+            //Define Dimensions
+            var topic = ndx.dimension(function(d) {
+                return d.topic;
+            });
+            var city = ndx.dimension(function(d) {
+                return d.city;
+            });
+            var coords = ndx.dimension(function(d) {
+                return [d.gmap_lat, d.gmap_lon, d.id, d.topic, d.title, d.url];
+            });
+            var allDim = ndx.dimension(function(d) {
+                return d;
+            });
+
+            //Group Dimensions
+            var coordsGroup = coords.group().reduceCount();
+            var topicGroup = topic.group().reduceCount();
+            var cityGroup = city.group().reduceCount();
+
+            //Declare Charts
+            var topicChart = dc.rowChart("#topic-chart", groupname);
+            var cityChart = dc.rowChart("#city-chart", groupname);
+            var map = dc.leafletMarkerChart("#map", groupname);
+
+            // adds x-label to Row Charts (Unsupported by dc.js)
+            var addXLabel = function(chartToUpdate, displayText) {
+                var textSelection = chartToUpdate.svg()
+                    .append("text")
                     .attr("class", "x-axis-label")
                     .attr("text-anchor", "middle")
                     .attr("x", chartToUpdate.width() / 2)
                     .attr("y", chartToUpdate.height() - 10)
                     .text(displayText);
-        var textDims = textSelection.node().getBBox();
-        var chartMargins = chartToUpdate.margins();     
-        // Dynamically adjust positioning after reading text dimension from DOM
-        textSelection
-            .attr("x", chartMargins.left + (chartToUpdate.width()
-              - chartMargins.left - chartMargins.right) / 2)
-            .attr("y", chartToUpdate.height() - Math.ceil(textDims.height) / 2);
-      };
+                var textDims = textSelection.node().getBBox();
+                var chartMargins = chartToUpdate.margins();
+                // Dynamically adjust positioning after reading text dimension from DOM
+                textSelection
+                    .attr("x", chartMargins.left + (chartToUpdate.width() -
+                        chartMargins.left - chartMargins.right) / 2)
+                    .attr("y", chartToUpdate.height() - Math.ceil(textDims.height) / 2);
+            };
 
-        topicChart
-        .width(400)
-        .height(690)
-        .margins({top: 20, right: 1, bottom: 45, left: 67})
-        .dimension(topic)
-        .group(topicGroup)
-        .ordering(function(d) { return -d.value })
-        .renderlet(function(chart){
-            chart.selectAll("g.row rect").attr("fill", function(d){
-              if(d.key==0)  return "#e6194b";
-              else if(d.key==1)  return "#3cb44b";
-              else if(d.key==2)  return "#ffe119";
-              else if(d.key==3)  return "#0082c8";
-              else if(d.key==4)  return "#f58231";
-              else if(d.key==5)  return "#911eb4";
-              else if(d.key==6)  return "#46f0f0";
-              else if(d.key==7)  return "#f032e6";
-              else if(d.key==8)  return "#d2f53c";
-              else if(d.key==9)  return "#fabebe";
-              else if(d.key==10)  return "#008080";
-              else if(d.key==11)  return "#e6beff";
-              else if(d.key==12)  return "#aa6e28";
-              else if(d.key==13)  return "#800000";
-              else if(d.key==14)  return "#aaffc3";
-              else if(d.key==15)  return "#808000";
-              else if(d.key==16)  return "#ffd8b1";
-              else return "#000080";
-            });
-        })
-        .label(function (d) {
-            return "Topic "+d.key;
-        })
-        .labelOffsetY(20)
-        .labelOffsetX(-65)
-        .elasticX(true)
-        .on("postRender", function(chart) {
-          addXLabel(chart, "Number of Posts");
-          // var total = 0;
-          // var barsData = [];
-          // var bars = chart.selectAll('rect').each(function (d) {
-          //     barsData.push(d); 
-          //     total = total + d;
-          // });
-          // console.log(bars);
-          // //Remove old values (if found)
-          // d3.select(bars).select('#inline-labels').remove();
-          // //Create group for labels 
-          // var gLabels = d3.select(bars.parentNode).append('g').attr('id', 'inline-labels');
-          // console.log(gLabels);
-          // for (var i = bars[0].length - 1; i >= 0; i--) {
-          //     var b = bars[0][i];
-          //     //Only create label if bar height is tall enough
-          //     if (+b.getAttribute('height') < 18) continue;
-          //     gLabels.append("text")
-          //         .text(Math.round((barsData[i].value / total)*100) + "%")
-          //         .attr('x', +b.getAttribute('x') + (b.getAttribute('width') / 2))
-          //         .attr('y', +b.getAttribute('y') + 15)
-          //         .attr('text-anchor', 'middle')
-          //         .attr('fill', 'white');
-          // };
-        });
-
-        cityChart
-        .width(280)
-        .height(690)
-        .margins({top: 20, right: 2, bottom: 45, left: 2})
-        .dimension(city)
-        .group(cityGroup)
-        .ordering(function(d) { return -d.value })
-        .colors(['#e2b2ff'])
-        .elasticX(true)
-        .labelOffsetY(10)
-        .labelOffsetX(2)
-        .on("postRender", function(chart) {
-          addXLabel(chart, "Number of Posts");
-        });
-
-        map
-        .dimension(coords)
-        .group(coordsGroup)
-        .width(900)
-        .height(690)
-        .center([40.2,-99.6])
-        .zoom(4)
-        .cluster(true)
-        .filterByArea(true)
-        .popup( function(d,marker) {
-          // console.log(d.key[4]);
-          popup = L.popup({autoPan: false, closeButton: false, maxWidth: 500});
-          popup.setContent(
-            "<b>Topic:  </b>" + d.key[3] + "</br>" +
-            "<b>Post Title: </b>" + d.key[4] + "</br>" +
-            "<b>URL: </b>" + "<a href='" + d.key[5] + "' >link to post</a>"
-          );
-          return popup;
-          })
-        .clusterOptions({
-          iconCreateFunction: function(t) {
-                var e = t.getChildCount(),
-                    f = t.getAllChildMarkers(),
-                    i = " marker-cluster-";
-                // counts for 18 topics from NFM model
-                topicCounts = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-                f.forEach(function(marker) {
-                    topicCounts[marker.key[3]] += 1
+            // row chart for topics
+            topicChart
+                .width(400)
+                .height(690)
+                .margins({
+                    top: 20,
+                    right: 1,
+                    bottom: 45,
+                    left: 67
                 })
-                topicMax = topicCounts.indexOf(Math.max.apply(Math, topicCounts))
-                return i+topicMax, new L.DivIcon({
-                    html: "<div><span>" + e + "</span></div>",
-                    className: "marker-cluster" + i+topicMax,
-                    iconSize: new L.Point(40, 40)
+                .dimension(topic)
+                .group(topicGroup)
+                .ordering(function(d) {
+                    return -d.value
                 })
-            }
-        });        
-        
-      dc.renderAll(groupname);
-      
-    };
-  </script>
+                .renderlet(function(chart) {
+                    // make bar colors correspond to topic numbers
+                    chart.selectAll("g.row rect").attr("fill", function(d) {
+                        if (d.key == 0) return "#e6194b";
+                        else if (d.key == 1) return "#3cb44b";
+                        else if (d.key == 2) return "#ffe119";
+                        else if (d.key == 3) return "#0082c8";
+                        else if (d.key == 4) return "#f58231";
+                        else if (d.key == 5) return "#911eb4";
+                        else if (d.key == 6) return "#46f0f0";
+                        else if (d.key == 7) return "#f032e6";
+                        else if (d.key == 8) return "#d2f53c";
+                        else if (d.key == 9) return "#fabebe";
+                        else if (d.key == 10) return "#008080";
+                        else if (d.key == 11) return "#e6beff";
+                        else if (d.key == 12) return "#aa6e28";
+                        else if (d.key == 13) return "#800000";
+                        else if (d.key == 14) return "#aaffc3";
+                        else if (d.key == 15) return "#808000";
+                        else if (d.key == 16) return "#ffd8b1";
+                        else return "#000080";
+                    });
+                })
+                .label(function(d) {
+                    return "Topic " + d.key;
+                })
+                .labelOffsetY(20)
+                .labelOffsetX(-65)
+                .elasticX(true)
+                .on("postRender", function(chart) {
+                    addXLabel(chart, "Number of Posts");
+                });
+
+            // row chart for cities
+            cityChart
+                .width(280)
+                .height(690)
+                .margins({
+                    top: 20,
+                    right: 2,
+                    bottom: 45,
+                    left: 2
+                })
+                .dimension(city)
+                .group(cityGroup)
+                .ordering(function(d) {
+                    return -d.value
+                })
+                .colors(['#e2b2ff'])
+                .elasticX(true)
+                .labelOffsetY(10)
+                .labelOffsetX(2)
+                .on("postRender", function(chart) {
+                    addXLabel(chart, "Number of Posts");
+                });
+
+            // dc.leaflet.js map
+            map
+                .dimension(coords)
+                .group(coordsGroup)
+                .width(900)
+                .height(690)
+                .center([40.2, -99.6])
+                .zoom(4)
+                .cluster(true)
+                .filterByArea(true)
+                .popup(function(d, marker) {
+                    // create custom leaflet popup on click
+                    popup = L.popup({
+                        autoPan: false,
+                        closeButton: false,
+                        maxWidth: 500
+                    });
+                    popup.setContent(
+                        "<b>Topic:  </b>" + d.key[3] + "</br>" +
+                        "<b>Post Title: </b>" + d.key[4] + "</br>" +
+                        "<b>URL: </b>" + "<a href='" + d.key[5] + "' >link to post</a>"
+                    );
+                    return popup;
+                })
+                .clusterOptions({
+                    // recreate clusters with colors according to majority of pins underneath
+                    // css classes defined in static/lib/css/leaflet.markercluster.class
+                    iconCreateFunction: function(t) {
+                        var e = t.getChildCount(),
+                            f = t.getAllChildMarkers(),
+                            i = " marker-cluster-";
+                        // counts for 18 topics from NFM model
+                        topicCounts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                        f.forEach(function(marker) {
+                            topicCounts[marker.key[3]] += 1
+                        })
+                        topicMax = topicCounts.indexOf(Math.max.apply(Math, topicCounts))
+                        return i + topicMax, new L.DivIcon({
+                            html: "<div><span>" + e + "</span></div>",
+                            className: "marker-cluster" + i + topicMax,
+                            iconSize: new L.Point(40, 40)
+                        })
+                    }
+                });
+
+            dc.renderAll(groupname);
+
+        };
+    </script>
 
 </body>
+
 </html>
